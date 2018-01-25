@@ -1,14 +1,27 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Partners Mobile App
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+    <ion-item><ion-label *ngIf="logoutFlag">You Logged out successfully!</ion-label>
+    </ion-item>
+  <ion-list>
+
+    <ion-item>
+      <ion-label stacked>Email ID</ion-label>
+      <ion-input type="text" #UserEmailId></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Password</ion-label>
+      <ion-input type="Password" #UserPassword></ion-input>
+    </ion-item>
+    <button ion-button  color="dark" (click)="doLogin()" item-left>Login</button>
+    <button ion-button  color="dark" (click)="openSignUpPage()" item-left>SignUp</button>
+
+  </ion-list>
 </ion-content>
