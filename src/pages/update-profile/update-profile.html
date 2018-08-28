@@ -9,26 +9,67 @@
 
 <ion-content>
   <ion-list>
+    <form (ngSubmit)="updateInfo()">
      <ion-item>
-    <ion-input type="text" placeholder="First Name" [(ngModel)]="firstName"></ion-input>
-  </ion-item>
-  <ion-item>
- <ion-input type="text" placeholder="Last Name" [(ngModel)]="lastName"></ion-input>
-</ion-item>
-<ion-item>
-<ion-input type="text" placeholder="Phone No." [(ngModel)]="userPhoneNo"></ion-input>
-</ion-item>
+       <ion-label stacked>First Name</ion-label>
+       <ion-input required type="text" stacked  [(ngModel)]="firstName" name="firstName"></ion-input>
+     </ion-item>
+     <ion-item>
+       <ion-label stacked>Last Name</ion-label>
+      <ion-input required type="text" stacked  [(ngModel)]="lastName" name="lastName"></ion-input>
+    </ion-item>
     <ion-item>
-      <ion-label>Gender</ion-label>
-      <ion-select [(ngModel)]="gender">
+      <ion-label stacked>Contact No.</ion-label>
+      <ion-input required type="text" stacked  [(ngModel)]="userPhoneNo" name="userPhoneNo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Gender</ion-label>
+      <ion-select required [(ngModel)]="gender" name="gender">
         <ion-option value="f">Female</ion-option>
         <ion-option value="m">Male</ion-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
-      <ion-label>Date of Birth</ion-label>
-      <ion-select [(ngModel)]="month">
+      <ion-label >Date of Birth</ion-label>
+
+        <ion-select required placeholder="DD" [(ngModel)]="Date" name="Date">
+
+        <ion-option value="01">01</ion-option>
+        <ion-option value="02">02</ion-option>
+        <ion-option value="03">03</ion-option>
+        <ion-option value="04">04</ion-option>
+        <ion-option value="05">05</ion-option>
+        <ion-option value="06">06</ion-option>
+        <ion-option value="07">07</ion-option>
+        <ion-option value="08">08</ion-option>
+        <ion-option value="09">09</ion-option>
+        <ion-option value="10">10</ion-option>
+        <ion-option value="11">11</ion-option>
+        <ion-option value="12">12</ion-option>
+        <ion-option value="13">13</ion-option>
+        <ion-option value="14">14</ion-option>
+        <ion-option value="15">15</ion-option>
+        <ion-option value="16">16</ion-option>
+        <ion-option value="17">17</ion-option>
+        <ion-option value="18">18</ion-option>
+        <ion-option value="19">19</ion-option>
+        <ion-option value="20">20</ion-option>
+        <ion-option value="21">21</ion-option>
+        <ion-option value="22">22</ion-option>
+        <ion-option value="23">23</ion-option>
+        <ion-option value="24">24</ion-option>
+        <ion-option value="25">25</ion-option>
+        <ion-option value="26">26</ion-option>
+        <ion-option value="27">27</ion-option>
+        <ion-option value="28">28</ion-option>
+        <ion-option value="29">29</ion-option>
+        <ion-option value="30">30</ion-option>
+        <ion-option value="31">31</ion-option>
+
+      </ion-select>
+
+      <ion-select required placeholder="MM" [(ngModel)]="month" name="month">
         <ion-option value="01">January</ion-option>
         <ion-option value="02">February</ion-option>
         <ion-option value="03">March</ion-option>
@@ -42,7 +83,7 @@
         <ion-option value="11">November</ion-option>
         <ion-option value="12" checked="true">December</ion-option>
       </ion-select>
-      <ion-select [(ngModel)]="year">
+      <ion-select required placeholder="YY" [(ngModel)]="year" name="year">
         <ion-option>1989</ion-option>
         <ion-option>1990</ion-option>
         <ion-option>1991</ion-option>
@@ -56,14 +97,50 @@
         <ion-option>1999</ion-option>
       </ion-select>
     </ion-item>
-  </ion-list>
-  <ion-item>
- <ion-input type="text" placeholder="Address" [(ngModel)]="address"></ion-input>
+    <ion-item>
+        <ion-label stacked>Workplace Name</ion-label>
+        <ion-input required type="text" [(ngModel)]="workplaceName" name="workplaceName"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Workplace Address</ion-label>
+        <ion-input required type="text" [(ngModel)]="userAddress" name="userAddress"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Workplace Designation</ion-label>
+        <ion-input required type="text" [(ngModel)]="workplaceDesignation" name="workplaceDesignation"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Education</ion-label>
+        <ion-input required type="text" [(ngModel)]="education" name="education"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>University/College</ion-label>
+        <ion-input required type="text" [(ngModel)]="university" name="university"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Speciality</ion-label>
+      <ion-select required [(ngModel)]="speciality" name="speciality">
+      <ion-option value="Contact Lens">Contact Lens</ion-option>
+      <ion-option value=" LVA">LVA</ion-option>
+      <ion-option value="Visual Rehabilitation">Visual Rehabilitation</ion-option>
+      <ion-option value="Binocular Vision & Vision Therapy">Binocular Vision & Vision Therapy</ion-option>
+      <ion-option value="Sports Vision">Sports Vision</ion-option>
+      <ion-option value="Glaucoma">Glaucoma</ion-option>
+      <ion-option value="Retinal Diagnostics">Retinal Diagnostics</ion-option>
+      <ion-option value="Anterior Segment Anomalies">Anterior Segment Anomalies</ion-option>
+      <ion-option value="Scientific Papers & Publications">Scientific Papers & Publications</ion-option>
+      <ion-option value="Industry Members"> Industry Members</ion-option>
+      </ion-select>
+    </ion-item>
+<ion-item>
+<ion-label stacked>Email</ion-label>
+<ion-input [readonly]="true" type="text" placeholder="Email" [(ngModel)]="email" name="email">{{email}}</ion-input>
 </ion-item>
 <ion-item>
-<ion-input type="text" placeholder="Email" [(ngModel)]="email">{{email}}</ion-input>
-</ion-item>
-  <button ion-button outline (click)="updateInfo()">
+  <button ion-button outline type="submit">
     Update
   </button>
+</ion-item>
+</form>
+</ion-list>
 </ion-content>

@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="danger">
     <ion-title>
       Partners Mobile App
     </ion-title>
@@ -7,12 +7,13 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-item><ion-label *ngIf="logoutFlag">You Logged out successfully!</ion-label>
-    </ion-item>
+<ion-card>
+  <img id="logo" src="assets/imgs/logo.png">
+  <ion-card>
   <ion-list>
 
     <ion-item>
-      <ion-label stacked>Email ID</ion-label>
+      <ion-label stacked class="homelabel">Email ID</ion-label>
       <ion-input type="text" #UserEmailId></ion-input>
     </ion-item>
 
@@ -20,8 +21,15 @@
       <ion-label stacked>Password</ion-label>
       <ion-input type="Password" #UserPassword></ion-input>
     </ion-item>
-    <button ion-button  color="dark" (click)="doLogin()" item-left>Login</button>
-    <button ion-button  color="dark" (click)="openSignUpPage()" item-left>SignUp</button>
+    <button ion-button  color="dark" (click)="doLogin()" item-left>Login
+      <ion-icon name='key' is-active="false"></ion-icon>
+    </button>
+
+    <button ion-button  color="dark" (click)="openSignUpPage()" item-left>SignUp
+      <ion-icon name='happy' is-active="false"></ion-icon>
+    </button>
 
   </ion-list>
+</ion-card>
+</ion-card>
 </ion-content>

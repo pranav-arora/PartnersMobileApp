@@ -4,6 +4,10 @@ import { SignUpPage } from '../sign-up/sign-up';
 import { ProfilePage } from '../profile/profile';
 import {AngularFireAuth} from 'angularfire2/auth';
 import { AlertController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
+
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -13,10 +17,34 @@ export class HomePage {
   @ViewChild('UserEmailId') userEmail;
   @ViewChild('UserPassword') userPassword;
 
-  constructor(private navParam:NavParams,private fire: AngularFireAuth,public navCtrl: NavController,public alertCtrl: AlertController) {
+  constructor(public loadingCtrl: LoadingController,private toastCtrl: ToastController,private navParam:NavParams,private fire: AngularFireAuth,public navCtrl: NavController,public alertCtrl: AlertController) {
 
     this.logoutFlag=navParam.get('logoutFlag');
+
   }
+
+  presentLoading() {
+    let loader = this.loadingCtrl.create({
+      content: "Please wait...",
+      duration: 2000
+    });
+    loader.present();
+  }
+
+
+  presentToast(message:string) {
+  let toast = this.toastCtrl.create({
+    message: message,
+    duration: 3000,
+    position: 'top'
+  });
+
+  toast.onDidDismiss(() => {
+    console.log('Dismissed toast');
+  });
+
+  toast.present();
+}
 
   showAlert(info:string, message:string) {
     let alert = this.alertCtrl.create({
@@ -33,11 +61,11 @@ openSignUpPage(){
 }
 
 doLogin(){
+  this.presentLoading();
   this.fire.auth.signInWithEmailAndPassword(this.userEmail.value,this.userPassword.value)
   .then(data=>{
-    this.showAlert('Success',' You logged in successfully.');
-    console.log("login success",data);
-    this.navCtrl.push(ProfilePage);
+    this.presentToast('You logged in successfully.');
+        this.navCtrl.setRoot(ProfilePage);
   })
   .catch(err=>{
     this.showAlert('fail',err.message);

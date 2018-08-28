@@ -3,6 +3,8 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { HttpModule } from '@angular/http'
 
 
 import { MyApp } from './app.component';
@@ -10,13 +12,17 @@ import { HomePage } from '../pages/home/home';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import { ProfilePage } from '../pages/profile/profile';
 import { UpdateProfilePage } from '../pages/update-profile/update-profile';
-//import { QrScanListResultPage } from '../pages/qr-scan-list-result/qr-scan-list-result';
-//import { EventsListPage } from '../pages/events-list/events-list';
-//import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
+import {QrScanListResultPage} from '../pages/qr-scan-list-result/qr-scan-list-result';
+import {EventsListPage} from '../pages/events-list/events-list';
+import { DescriptionPage } from '../pages/description/description';
+import { Camera } from '@ionic-native/camera';
+import { QRScanner } from '@ionic-native/qr-scanner';
+
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { SignupServiceProvider } from '../providers/signup-service/signup-service';
 
 
 const config = {
@@ -36,16 +42,18 @@ const config = {
     HomePage,
     SignUpPage,
     ProfilePage,
-    UpdateProfilePage
-  //  QrScanListResultPage,
-  //  EventsListPage
+    UpdateProfilePage,
+    QrScanListResultPage,
+    EventsListPage,
+    DescriptionPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -53,14 +61,19 @@ const config = {
     HomePage,
     SignUpPage,
     ProfilePage,
-    UpdateProfilePage
-    //QrScanListResultPage,
-    //EventsListPage
+    UpdateProfilePage,
+    QrScanListResultPage,
+    EventsListPage,
+    DescriptionPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Camera,
+    QRScanner,
+    BarcodeScanner,
+    SignupServiceProvider
   ]
 })
 export class AppModule {}

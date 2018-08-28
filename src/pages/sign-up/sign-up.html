@@ -15,6 +15,24 @@
 
 <ion-content padding>
   <ion-list>
+    <!-- <form [formGroup]="formgroup"> -->
+    <ion-item>
+      <ion-label stacked>OCI Member ID (Mandatory)</ion-label>
+      <ion-input type="text" [(ngModel)]="OCIMemberID"></ion-input>
+    </ion-item>
+
+    <!-- <ion-item *ngIf="OCIMemberID.hasError('required')">
+      <p>*OCI Member ID is mandatory.</p>
+    </ion-item> -->
+    <!-- </form> -->
+    <ion-item>
+      <ion-label stacked>First Name</ion-label>
+      <ion-input type="text" [(ngModel)]="firstname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Last Name</ion-label>
+      <ion-input type="text" [(ngModel)]="lastname"></ion-input>
+    </ion-item>
 
     <ion-item>
       <ion-label stacked>Email ID</ion-label>
@@ -26,12 +44,36 @@
       <ion-input type="password" #UserPassword></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label stacked>Phone</ion-label>
-      <ion-input type="integer" #UserPhoneNo></ion-input>
-    </ion-item><ion-item>
-      <ion-label stacked>Address</ion-label>
-      <ion-input type="text" #UserAddress></ion-input>
+      <ion-label stacked>Contact No.</ion-label>
+      <ion-input type="integer" [(ngModel)]="UserPhoneNo"></ion-input>
     </ion-item>
+    <ion-item>
+      <ion-label stacked>Workplace Name</ion-label>
+      <ion-input type="text" [(ngModel)]="workplaceName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Workplace Address</ion-label>
+      <ion-input type="text" [(ngModel)]="UserAddress"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Workplace Designation</ion-label>
+      <ion-input type="text" [(ngModel)]="workplaceDesignation"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Education</ion-label>
+      <ion-input type="text" [(ngModel)]="education"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>University/College</ion-label>
+      <ion-input type="text" [(ngModel)]="university"></ion-input>
+    </ion-item>
+    <ion-item>
+  <ion-label stacked>Speciality</ion-label>
+  <ion-select [(ngModel)]="speciality">
+
+    <ion-option *ngFor="let item of items" value={{item.title}}>{{item.title}}</ion-option>
+  </ion-select>
+</ion-item>
     <button ion-button  color="dark" (click)="doRegisterAndLogin()" item-left>SignUp</button>
     <button ion-button  color="dark" (click)="goHome()" item-left>Cancel</button>
 

@@ -7,8 +7,8 @@
 <ion-header>
 
 
-  <ion-navbar>
-    <ion-title>Dash</ion-title>
+  <ion-navbar color="danger">
+    <ion-title><ion-icon name='home' is-active="false"></ion-icon>Dash</ion-title>
 
   </ion-navbar>
 
@@ -20,26 +20,56 @@
 
 
 
+
 <ion-content>
-<br>
-  Welcome {{user.email}}
+  <p>
 
-<br>
-  <br>
-    <button ion-button  full (click)="goToUpdateProfilePage()">
-      Update Profile
-    </button>
-    <br>
-    <button ion-button  full (click)="goToEventListPage()">
-      Events
-    </button><br>
-    <button ion-button  full (click)="goToQRScanResultPage()">
-      QR Scan
-    </button>
-    <br>
-    <br>
-    <button ion-button color="danger" clear item-right (click)="userLogout()">Logout</button>
+    <ion-card>
+      <ion-card-header>
+        <div class="container">
+          <div class="card hovercard">
+      <ion-card>
 
+        <div class="avatar">
+                    <img alt="" src="https://image.freepik.com/free-icon/male-user-profile-picture_318-37825.jpg">
+                </div>
+                <div class="info">
+                   <div class="title">
+                      {{firstname}} {{lastname}}
+                   </div>
+                   <div class="desc">  {{phone}}</div>
+                   <div class="desc">  {{user.email}}</div>
+               </div>
+
+
+      </ion-card>
+    </div>
+  </div>
+    </ion-card-header>
+  <ion-card-content>
+      <button class="profilebutton" ion-button clear icon-left icon-start (click)="goToEventListPage()">
+        <ion-icon name='list' is-active="false"></ion-icon>
+        Events
+      </button>
+      <br>
+      <button class="profilebutton" ion-button clear icon-left icon-start (click)="goToQRScanResultPage()">
+        <ion-icon name='qr-scanner' is-active="false"></ion-icon>
+        QR Scan
+      </button>
+      <br>
+      <button class="profilebutton" ion-button clear icon-left icon-start (click)="goToUpdateProfilePage()">
+        <ion-icon name='person' is-active="false"></ion-icon>
+        Update Profile
+      </button>
+
+  </ion-card-content>
+</ion-card>
+    <button ion-button color="danger" item-bottom clear (click)="userLogout()">
+      <ion-icon name='log-out' is-active="true"></ion-icon>
+      Logout
+    </button>
+
+  </p>
   </ion-content>
 
 </ion-content>

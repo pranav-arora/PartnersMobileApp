@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { DescriptionPage } from '../description/description';
+
 /**
- * Generated class for the EventsListPage page.
+ * Generated class for the DescriptionPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,19 +10,16 @@ import { DescriptionPage } from '../description/description';
 
 @IonicPage()
 @Component({
-  selector: 'page-events-list',
-  templateUrl: 'events-list.html',
+  selector: 'page-description',
+  templateUrl: 'description.html',
 })
-export class EventsListPage {
+export class DescriptionPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EventsListPage');
-  }
-  description(){
-    this.navCtrl.push(DescriptionPage);
+    console.log('ionViewDidLoad DescriptionPage');
   }
 
 }
